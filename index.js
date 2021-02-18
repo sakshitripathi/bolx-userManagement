@@ -12,7 +12,7 @@ mongoose.Promise = global.Promise;
 
 const bcrypt = require("bcryptjs");
 
-mongoose.connect("mongodb://localhost:27017/User", {
+mongoose.connect("mongodb://localhost:27017/olxDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
