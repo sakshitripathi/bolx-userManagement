@@ -8,4 +8,5 @@ module.exports = function (app) {
   app.route("/validateToken").post(controllers.validateToken);
   app.route("/editFavorite").post(controllers.editFavorite);
   app.route("/getUsers").get(controllers.getUsers);
+  app.route("/expFavorite").post(controllers.expFavorite);
 };

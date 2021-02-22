@@ -77,8 +77,8 @@ exports.validateToken = async function (req, res) {
 
 exports.editFavorite = async function (req, res) {
   const { email, product_id, action } = req.body;
-  console.log(email);
-  console.log(product_id);
+  console.log(req.body);
+  //console.log(product_id);
   try {
     if (action == "ADD") {
       await User.updateOne({ email }, { $addToSet: { favorites: product_id } });
@@ -89,6 +89,13 @@ exports.editFavorite = async function (req, res) {
     return res.json({ status: "error", error: error });
   }
   return res.json({ status: "success" });
+};
+
+exports.expFavorite = async function (req,res) {
+  console.log(req.body);
+  const favData = await User.findOne({email: req.body.email});
+  console.log(favData.favorites);
+  return res.json(favData.favorites);
 };
 
 exports.getUsers = async function (req, res) {
